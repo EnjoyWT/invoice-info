@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@theme {
+  --color-apple-black: #1d1d1f;
+  --color-apple-gray: #86868b;
+  --color-apple-lightgray: #f5f5f7;
+  --color-apple-blue: #0071e3;
+  --color-apple-bluehover: #0077ED;
+  --color-invoice-line: #d2d2d7;
+  --color-invoice-soft: #e8e8ed;
+  --color-invoice-paper: #fafafa;
+  --color-invoice-stamp: #e8453c;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Noto Sans CJK SC', sans-serif;
+}
+
+body {
+  background: #ffffff;
+  color: #1d1d1f;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Fade-in animation for scroll reveal */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Full-bleed sections: break out of any parent container */
+.full-bleed {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+}
+
+/* FAQ accordion */
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+}
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+.faq-item[open] .faq-arrow {
+  transform: rotate(45deg);
+}
+.faq-arrow {
+  transition: transform 0.2s ease;
+  display: inline-block;
+}
+
+/* SVG icon stroke style */
+.icon-line {
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+/* Tap target minimum */
+.tap-target {
+  min-height: 44px;
+}
