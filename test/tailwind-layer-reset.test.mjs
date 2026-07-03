@@ -1,6 +1,8 @@
-import { readFileSync, readdirSync } from 'node:fs'
+import { existsSync, readFileSync, readdirSync } from 'node:fs'
 import { resolve } from 'node:path'
 
+const indexPath = resolve('index.html')
+const index = readFileSync(indexPath, 'utf8')
 const cssPath = resolve('src/style.css')
 const css = readFileSync(cssPath, 'utf8')
 const faqPath = resolve('src/components/SectionFaq.vue')
@@ -78,4 +80,34 @@ for (const [file, source] of componentSources) {
 
 if (!howItWorks.includes('id="how-it-works"')) {
   throw new Error('SectionHowItWorks should expose id="how-it-works" for nav anchors.')
+}
+
+for (const [label, required] of [
+  ['description meta', /<meta\s+name="description"/],
+  ['canonical link', /<link\s+rel="canonical"\s+href="https:\/\/invoice\.yoloxy\.com\/"/],
+  ['favicon link', /<link\s+rel="icon"\s+href="\/favicon\.ico"/],
+  ['apple touch icon link', /<link\s+rel="apple-touch-icon"\s+href="\/apple-touch-icon\.png"/],
+  ['manifest link', /<link\s+rel="manifest"\s+href="\/site\.webmanifest"/],
+  ['og title meta', /<meta\s+property="og:title"/],
+  ['og description meta', /<meta\s+property="og:description"/],
+  ['og url meta', /<meta\s+property="og:url"\s+content="https:\/\/invoice\.yoloxy\.com\/"/],
+  ['twitter card meta', /<meta\s+name="twitter:card"/],
+  ['structured data', /<script\s+type="application\/ld\+json"/],
+]) {
+  if (!required.test(index)) {
+    throw new Error(`index.html is missing SEO/GEO metadata: ${label}`)
+  }
+}
+
+for (const requiredFile of [
+  'public/favicon.ico',
+  'public/apple-touch-icon.png',
+  'public/robots.txt',
+  'public/sitemap.xml',
+  'public/site.webmanifest',
+  'public/llms.txt',
+]) {
+  if (!existsSync(resolve(requiredFile))) {
+    throw new Error(`${requiredFile} is required for favicon and SEO/GEO configuration.`)
+  }
 }
