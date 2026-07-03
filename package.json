@@ -1,7 +1,7 @@
 {
   "name": "invoice-info",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "gsap": "^3.15.0",
     "vue": "^3.5.39"
   },
   "devDependencies": {

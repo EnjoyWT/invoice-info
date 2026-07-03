@@ -17,6 +17,8 @@ const otherProductsPath = resolve('src/components/SectionOtherProducts.vue')
 const otherProducts = readFileSync(otherProductsPath, 'utf8')
 const appPath = resolve('src/App.vue')
 const app = readFileSync(appPath, 'utf8')
+const mainPath = resolve('src/main.js')
+const main = readFileSync(mainPath, 'utf8')
 const pricingPath = resolve('src/components/SectionPricing.vue')
 const componentsDir = resolve('src/components')
 const componentSources = readdirSync(componentsDir)
@@ -87,6 +89,10 @@ if (!howItWorks.includes('id="how-it-works"')) {
   throw new Error('SectionHowItWorks should expose id="how-it-works" for nav anchors.')
 }
 
+if ((howItWorks.match(/how-fly-in/g) || []).length !== 4) {
+  throw new Error('SectionHowItWorks should animate the two desktop arrows plus steps 2 and 3 from the right.')
+}
+
 if (!existsSync(pricingPath)) {
   throw new Error('SectionPricing.vue is required for the pricing module.')
 }
@@ -95,6 +101,32 @@ const pricing = readFileSync(pricingPath, 'utf8')
 
 if (!app.includes('<SectionPricing />') || !app.includes("import SectionPricing from './components/SectionPricing.vue'")) {
   throw new Error('App.vue should render SectionPricing.')
+}
+
+for (const required of ['gsap.fromTo', 'toggleActions', 'gsap.matchMedia', 'prefers-reduced-motion: reduce', 'prefers-reduced-motion: no-preference']) {
+  if (!app.includes(required)) {
+    throw new Error(`App.vue should use GSAP scroll reveal support: ${required}.`)
+  }
+}
+
+for (const required of ['.how-fly-in', "trigger: '#how-it-works'", 'x: 96', 'stagger: 0.14']) {
+  if (!app.includes(required)) {
+    throw new Error(`App.vue should animate the how-it-works desktop steps from the right: ${required}.`)
+  }
+}
+
+for (const required of ['__APP_VERSION__', '__APP_COMMIT__', '__APP_BUILD_TIME__']) {
+  if (!main.includes(required)) {
+    throw new Error(`main.js should print build version metadata: ${required}.`)
+  }
+}
+
+if (!readFileSync(resolve('vite.config.js'), 'utf8').includes('build version=')) {
+  throw new Error('vite.config.js should print build version metadata to terminal output.')
+}
+
+if (/\.fade-in\s*\{[^}]*opacity\s*:\s*0/s.test(css)) {
+  throw new Error('CSS should not hide .fade-in by default; GSAP should own runtime visibility.')
 }
 
 if (!pricing.includes('id="pricing"')) {

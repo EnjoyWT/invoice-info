@@ -9,7 +9,7 @@
       <!-- Desktop: 3 equal steps with arrows -->
       <div class="mt-12 hidden md:flex items-center justify-center max-w-3xl mx-auto">
         <!-- Step 1 -->
-        <div class="fade-in flex-1 text-center px-3">
+        <div class="flex-1 text-center px-3">
           <div
             class="mx-auto w-20 h-20 rounded-full bg-white shadow-sm flex items-center justify-center text-apple-blue"
           >
@@ -26,7 +26,7 @@
         </div>
 
         <!-- Arrow 1 -->
-        <div class="fade-in shrink-0 flex items-center px-1 -mt-8">
+        <div class="how-fly-in shrink-0 flex items-center px-1 -mt-8">
           <svg width="48" height="16" viewBox="0 0 48 16">
             <path
               d="M2 8h38M38 3l6 5-6 5"
@@ -40,7 +40,7 @@
         </div>
 
         <!-- Step 2: Auto -->
-        <div class="fade-in flex-1 text-center px-3">
+        <div class="how-fly-in flex-1 text-center px-3">
           <div
             class="mx-auto w-20 h-20 rounded-full bg-white shadow-sm flex items-center justify-center text-apple-blue"
           >
@@ -58,7 +58,7 @@
         </div>
 
         <!-- Arrow 2 -->
-        <div class="fade-in shrink-0 flex items-center px-1 -mt-8">
+        <div class="how-fly-in shrink-0 flex items-center px-1 -mt-8">
           <svg width="48" height="16" viewBox="0 0 48 16">
             <path
               d="M2 8h38M38 3l6 5-6 5"
@@ -72,7 +72,7 @@
         </div>
 
         <!-- Step 3 -->
-        <div class="fade-in flex-1 text-center px-3">
+        <div class="how-fly-in flex-1 text-center px-3">
           <div
             class="mx-auto w-20 h-20 rounded-full bg-white shadow-sm flex items-center justify-center text-apple-blue"
           >
