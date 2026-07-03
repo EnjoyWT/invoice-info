@@ -8,6 +8,7 @@
       <SectionHowItWorks />
       <SectionSecurity />
       <SectionDashboard />
+      <SectionPricing />
       <SectionOtherProducts />
       <SectionFaq />
       <SectionCta />
@@ -25,6 +26,7 @@ import SectionFeatures from './components/SectionFeatures.vue'
 import SectionHowItWorks from './components/SectionHowItWorks.vue'
 import SectionSecurity from './components/SectionSecurity.vue'
 import SectionDashboard from './components/SectionDashboard.vue'
+import SectionPricing from './components/SectionPricing.vue'
 import SectionOtherProducts from './components/SectionOtherProducts.vue'
 import SectionFaq from './components/SectionFaq.vue'
 import SectionCta from './components/SectionCta.vue'

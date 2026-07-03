@@ -13,6 +13,11 @@ const heroPath = resolve('src/components/SectionHero.vue')
 const hero = readFileSync(heroPath, 'utf8')
 const navPath = resolve('src/components/TheNavbar.vue')
 const nav = readFileSync(navPath, 'utf8')
+const otherProductsPath = resolve('src/components/SectionOtherProducts.vue')
+const otherProducts = readFileSync(otherProductsPath, 'utf8')
+const appPath = resolve('src/App.vue')
+const app = readFileSync(appPath, 'utf8')
+const pricingPath = resolve('src/components/SectionPricing.vue')
 const componentsDir = resolve('src/components')
 const componentSources = readdirSync(componentsDir)
   .filter((file) => file.endsWith('.vue'))
@@ -80,6 +85,58 @@ for (const [file, source] of componentSources) {
 
 if (!howItWorks.includes('id="how-it-works"')) {
   throw new Error('SectionHowItWorks should expose id="how-it-works" for nav anchors.')
+}
+
+if (!existsSync(pricingPath)) {
+  throw new Error('SectionPricing.vue is required for the pricing module.')
+}
+
+const pricing = readFileSync(pricingPath, 'utf8')
+
+if (!app.includes('<SectionPricing />') || !app.includes("import SectionPricing from './components/SectionPricing.vue'")) {
+  throw new Error('App.vue should render SectionPricing.')
+}
+
+if (!pricing.includes('id="pricing"')) {
+  throw new Error('SectionPricing should expose id="pricing" for nav anchors.')
+}
+
+for (const required of ['3 个月 Pro', '6 个月 Pro', '1 年 Pro', '永久会员', '¥39.9', '¥59.9', '¥49.9', '¥89.9', '¥69.9', '¥129.9', '¥599', '¥999']) {
+  if (!pricing.includes(required)) {
+    throw new Error(`SectionPricing is missing ${required}.`)
+  }
+}
+
+if (!pricing.includes('包含其他工具会员永久权益')) {
+  throw new Error('Permanent membership copy should mention other tool memberships.')
+}
+
+for (const required of ['hover:-translate-y-1', 'hover:shadow-md', 'hover:border-apple-blue/50']) {
+  if (!pricing.includes(required)) {
+    throw new Error(`Pricing cards should include hover interaction: ${required}.`)
+  }
+}
+
+for (const required of ['Mac 动态壁纸软件', '永久会员']) {
+  if (!otherProducts.includes(required)) {
+    throw new Error(`SectionOtherProducts is missing ${required}.`)
+  }
+}
+
+if (!otherProducts.includes('src="/WechatIMG228662.jpg"')) {
+  throw new Error('SectionOtherProducts should use WechatIMG228662.jpg for the Mac wallpaper product.')
+}
+
+if (!otherProducts.includes('alt="Mac 动态壁纸软件界面截图"')) {
+  throw new Error('SectionOtherProducts product image should include descriptive alt text.')
+}
+
+if (otherProducts.includes('[产品 A 名称]') || otherProducts.includes('[产品 B 名称]')) {
+  throw new Error('SectionOtherProducts should not include placeholder products.')
+}
+
+if ((otherProducts.match(/name:/g) || []).length !== 1) {
+  throw new Error('SectionOtherProducts should include exactly one real product.')
 }
 
 for (const [label, required] of [
