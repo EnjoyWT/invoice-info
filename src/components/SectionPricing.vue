@@ -4,7 +4,9 @@
       <h2 class="text-3xl md:text-4xl font-semibold text-apple-black">
         Pro 套餐，限时优惠
       </h2>
-      <p class="mt-4 text-base text-apple-gray max-w-xl mx-auto leading-relaxed">
+      <p
+        class="mt-4 text-base text-apple-gray max-w-xl mx-auto leading-relaxed"
+      >
         适合经常整理报销材料的个人和团队，开通后解锁更多处理能力。
       </p>
 
@@ -16,7 +18,9 @@
           :class="idx === 1 ? 'border-apple-blue shadow-md' : 'border-black/10'"
         >
           <div class="flex items-center justify-between gap-4">
-            <h3 class="text-base font-semibold text-apple-black">{{ plan.name }}</h3>
+            <h3 class="text-base font-semibold text-apple-black">
+              {{ plan.name }}
+            </h3>
             <span
               v-if="idx === 1"
               class="rounded-full bg-apple-blue px-3 py-1 text-xs font-medium text-white"
@@ -29,7 +33,9 @@
             <span class="text-3xl md:text-4xl font-semibold text-apple-black">
               {{ plan.price }}
             </span>
-            <span class="text-base text-apple-gray line-through">{{ plan.original }}</span>
+            <span class="text-base text-apple-gray line-through">{{
+              plan.original
+            }}</span>
           </div>
 
           <p class="mt-4 text-sm leading-6 text-apple-gray">{{ plan.desc }}</p>
@@ -51,28 +57,28 @@
 <script setup>
 const plans = [
   {
-    name: '3 个月 Pro',
-    price: '¥39.9',
-    original: '¥59.9',
-    desc: '短期高频报销整理，灵活开通。',
+    name: "3 个月 Pro",
+    price: "¥39.9",
+    original: "¥59.9",
+    desc: "短期高频报销整理，灵活开通。",
   },
   {
-    name: '6 个月 Pro',
-    price: '¥49.9',
-    original: '¥89.9',
-    desc: '更适合持续使用，性价比更高。',
+    name: "6 个月 Pro",
+    price: "¥49.9",
+    original: "¥89.9",
+    desc: "更适合持续使用，性价比更高。",
   },
   {
-    name: '1 年 Pro',
-    price: '¥69.9',
-    original: '¥129.9',
-    desc: '全年发票打印整理，一次开通更省心。',
+    name: "1 年 Pro",
+    price: "¥69.9",
+    original: "¥129.9",
+    desc: "全年发票打印整理，一次开通更省心。",
   },
   {
-    name: '永久会员',
-    price: '¥599',
-    original: '¥999',
-    desc: '包含其他工具会员永久权益。',
+    name: "永久会员",
+    price: "¥299",
+    original: "¥599",
+    desc: "包含其他工具会员永久权益。后续升级服务",
   },
-]
+];
 </script>

@@ -1,6 +1,6 @@
 {
-  "name": "发票合并打印",
-  "short_name": "发票合并",
+  "name": "发票合并助手打印工具",
+  "short_name": "发票合并助手",
   "description": "将常见发票和出行票据智能排版到一张 A4，方便报销打印。",
   "start_url": "/",
   "scope": "/",

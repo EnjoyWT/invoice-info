@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <title>明星行草简写签名 - 骨架可辨</title>
+    <style>
+      body {
+        background: linear-gradient(
+          135deg,
+          #1a1a1c 0%,
+          #08080a 100%
+        ); /* 奢华暗黑背景 */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        overflow: hidden;
+      }
+
+      .star-sign-wrapper {
+        position: relative;
+        width: 550px;
+        height: 250px;
+      }
+
+      .celebrity-path {
+        /* 模拟金色签字笔在黑底上的高贵、有质感的墨水感 */
+        stroke: url(#star-gold);
+        stroke-width: 4;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+
+        /* 模拟明星在红毯上2-3秒内一气呵成、潇洒速度 */
+        stroke-dasharray: 1800;
+        stroke-dashoffset: 1800;
+        animation: starSignatureDraw 3s cubic-bezier(0.2, 0, 0.2, 1) forwards;
+
+        /* 营造明星签名的聚光灯高光感 */
+        filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
+      }
+
+      @keyframes starSignatureDraw {
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <svg class="star-sign-wrapper" viewBox="0 0 600 300">
+      <defs>
+        <linearGradient id="star-gold" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#fff8cc" />
+          <stop offset="30%" stop-color="#f9d423" />
+          <stop offset="70%" stop-color="#ccac00" />
+          <stop offset="100%" stop-color="#f9d423" />
+        </linearGradient>
+      </defs>
+
+      <path
+        class="celebrity-path"
+        d="M 60 120 
+                   C 90 70, 130 70, 140 100 
+                   C 160 160, 100 180, 180 160 
+                   C 230 140, 200 80, 250 90 
+                   C 280 100, 260 180, 310 160
+                   C 340 140, 310 80, 360 80
+                   C 400 80, 370 190, 450 160
+                   C 480 150, 420 80, 500 100
+                   L 550 80"
+      />
+    </svg>
+  </body>
+</html>
