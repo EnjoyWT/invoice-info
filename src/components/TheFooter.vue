@@ -108,7 +108,7 @@
         </h2>
         <p class="mt-2 text-sm text-apple-gray">扫码添加微信，获取产品支持。</p>
         <img
-          src="/WechatIMG847.jpg"
+          src="/ljt.png"
           alt="联系我们微信二维码"
           class="mt-5 w-full rounded-xl"
         />
