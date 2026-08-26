@@ -58,26 +58,26 @@
 const plans = [
   {
     name: "3 个月 Pro",
-    price: "¥39.9",
-    original: "¥59.9",
+    price: "¥19.9",
+    original: "¥29.9",
     desc: "短期高频报销整理，灵活开通。",
   },
   {
     name: "6 个月 Pro",
-    price: "¥49.9",
-    original: "¥89.9",
+    price: "¥29.9",
+    original: "¥49.9",
     desc: "更适合持续使用，性价比更高。",
   },
   {
     name: "1 年 Pro",
-    price: "¥69.9",
-    original: "¥129.9",
+    price: "¥49.9",
+    original: "¥79.9",
     desc: "全年发票打印整理，一次开通更省心。",
   },
   {
     name: "永久会员",
-    price: "¥299",
-    original: "¥599",
+    price: "¥129",
+    original: "¥199",
     desc: "包含其他工具会员永久权益。后续升级服务",
   },
 ];

@@ -133,7 +133,7 @@ if (!pricing.includes('id="pricing"')) {
   throw new Error('SectionPricing should expose id="pricing" for nav anchors.')
 }
 
-for (const required of ['3 个月 Pro', '6 个月 Pro', '1 年 Pro', '永久会员', '¥39.9', '¥59.9', '¥49.9', '¥89.9', '¥69.9', '¥129.9', '¥599', '¥999']) {
+for (const required of ['3 个月 Pro', '6 个月 Pro', '1 年 Pro', '永久会员', '¥19.9', '¥29.9', '¥49.9', '¥79.9', '¥129', '¥199']) {
   if (!pricing.includes(required)) {
     throw new Error(`SectionPricing is missing ${required}.`)
   }
