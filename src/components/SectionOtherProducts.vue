@@ -27,6 +27,8 @@
           <p class="mt-2 text-sm text-apple-gray leading-6">{{ product.desc }}</p>
           <a
             :href="product.href"
+            target="_blank"
+            rel="noopener noreferrer"
             class="mt-4 inline-flex items-center text-sm font-medium"
             :class="product.disabled ? 'pointer-events-none text-apple-gray' : 'text-apple-blue hover:underline'"
           >
@@ -45,8 +47,8 @@ const products = [
     image: '/WechatIMG228662.jpg',
     alt: 'Mac 动态壁纸软件界面截图',
     desc: '永久会员，一次开通长期使用。',
-    action: '了解更多 →',
-    href: '#',
+    action: '下载安装包 →',
+    href: 'https://github.com/EnjoyWT/flux-wall-pkg/releases/download/v0.1.0/FluxWall-0.1.0-unsigned.pkg',
   },
   {
     name: '票据归档助手',

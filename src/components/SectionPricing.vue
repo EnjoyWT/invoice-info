@@ -40,21 +40,32 @@
 
           <p class="mt-4 text-sm leading-6 text-apple-gray">{{ plan.desc }}</p>
 
-          <a
-            href="https://fp.yoloxy.com"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            type="button"
             class="tap-target mt-6 inline-flex w-full items-center justify-center rounded-full bg-apple-black px-5 py-3 text-base font-medium text-white transition-colors hover:bg-apple-blue"
+            @click="selectedPlan = plan"
           >
-            立即使用
-          </a>
+            立刻购买
+          </button>
         </div>
       </div>
     </div>
+
+    <ContactQrModal
+      v-if="selectedPlan"
+      :title="`购买 ${selectedPlan.name}`"
+      description="扫码添加微信，告知所选套餐和注册邮箱，人工确认后开通。"
+      @close="selectedPlan = null"
+    />
   </section>
 </template>
 
 <script setup>
+import { ref } from 'vue'
+import ContactQrModal from './ContactQrModal.vue'
+
+const selectedPlan = ref(null)
+
 const plans = [
   {
     name: "3 个月 Pro",
