@@ -56,7 +56,7 @@ const products = [
     name: '证件照与证件扫描',
     image: '/pixfit-icon-clean.png',
     alt: '证件照与证件扫描工具图标',
-    imageClass: 'bg-white/60 object-contain',
+    imageClass: 'bg-white/60 object-contain p-6',
     desc: '在线制作标准证件照，支持抠图换底、尺寸裁剪、排版导出和证件扫描 PDF/图片生成。',
     action: '立即使用 →',
     href: 'https://zj.yoloxy.com',
