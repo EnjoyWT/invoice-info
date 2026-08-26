@@ -4,7 +4,7 @@
       <h2 class="text-3xl md:text-4xl font-semibold text-apple-black">
         更多工具，同一个团队
       </h2>
-      <div class="mt-10 md:mt-14 grid gap-6 md:grid-cols-2 max-w-2xl mx-auto">
+      <div class="mt-10 md:mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto">
         <div
           v-for="product in products"
           :key="product.name"
@@ -15,7 +15,7 @@
             :src="product.image"
             :alt="product.alt"
             loading="lazy"
-            class="h-32 w-full rounded-xl object-cover"
+            class="h-32 w-full rounded-xl bg-white/60 object-contain p-4"
           />
           <div
             v-else
@@ -49,6 +49,14 @@ const products = [
     desc: '永久会员，一次开通长期使用。',
     action: '下载安装包 →',
     href: 'https://github.com/EnjoyWT/flux-wall-pkg/releases/download/v0.1.0/FluxWall-0.1.0-unsigned.pkg',
+  },
+  {
+    name: '证件照与证件扫描',
+    image: '/pixfit-icon.png',
+    alt: '证件照与证件扫描工具图标',
+    desc: '在线制作标准证件照，支持抠图换底、尺寸裁剪、排版导出和证件扫描 PDF/图片生成。',
+    action: '立即使用 →',
+    href: 'https://zj.yoloxy.com',
   },
   {
     name: '票据归档助手',

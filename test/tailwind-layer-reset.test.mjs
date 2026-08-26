@@ -149,7 +149,7 @@ for (const required of ['hover:-translate-y-1', 'hover:shadow-md', 'hover:border
   }
 }
 
-for (const required of ['Mac 动态壁纸软件', '票据归档助手', '永久会员', '敬请期待', '努力开发中']) {
+for (const required of ['Mac 动态壁纸软件', '证件照与证件扫描', '票据归档助手', '永久会员', '敬请期待', '努力开发中']) {
   if (!otherProducts.includes(required)) {
     throw new Error(`SectionOtherProducts is missing ${required}.`)
   }
@@ -167,8 +167,12 @@ if (otherProducts.includes('[产品 A 名称]') || otherProducts.includes('[产�
   throw new Error('SectionOtherProducts should not include placeholder products.')
 }
 
-if ((otherProducts.match(/name:/g) || []).length !== 2) {
-  throw new Error('SectionOtherProducts should include exactly two products.')
+if ((otherProducts.match(/name:/g) || []).length !== 3) {
+  throw new Error('SectionOtherProducts should include exactly three products.')
+}
+
+if (!otherProducts.includes("href: 'https://zj.yoloxy.com'")) {
+  throw new Error('SectionOtherProducts should link the ID-photo tool to zj.yoloxy.com.')
 }
 
 if ((otherProducts.match(/action: '努力开发中'/g) || []).length !== 1) {
