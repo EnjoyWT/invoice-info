@@ -15,14 +15,14 @@
           v-for="(plan, idx) in plans"
           :key="plan.name"
           class="fade-in rounded-2xl border bg-white p-6 text-left shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-apple-blue/50 hover:shadow-md"
-          :class="idx === 1 ? 'border-apple-blue shadow-md' : 'border-black/10'"
+          :class="idx === 2 ? 'border-apple-blue shadow-md' : 'border-black/10'"
         >
           <div class="flex items-center justify-between gap-4">
             <h3 class="text-base font-semibold text-apple-black">
               {{ plan.name }}
             </h3>
             <span
-              v-if="idx === 1"
+              v-if="idx === 2"
               class="rounded-full bg-apple-blue px-3 py-1 text-xs font-medium text-white"
             >
               推荐
