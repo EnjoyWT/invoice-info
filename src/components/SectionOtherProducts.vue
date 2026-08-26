@@ -15,7 +15,8 @@
             :src="product.image"
             :alt="product.alt"
             loading="lazy"
-            class="h-32 w-full rounded-xl bg-white/60 object-contain p-4"
+            class="h-32 w-full rounded-xl"
+            :class="product.imageClass ?? 'object-cover'"
           />
           <div
             v-else
@@ -46,6 +47,7 @@ const products = [
     name: 'Mac 动态壁纸软件',
     image: '/WechatIMG228662.jpg',
     alt: 'Mac 动态壁纸软件界面截图',
+    imageClass: 'object-cover',
     desc: '永久会员，一次开通长期使用。',
     action: '下载安装包 →',
     href: 'https://github.com/EnjoyWT/flux-wall-pkg/releases/download/v0.1.0/FluxWall-0.1.0-unsigned.pkg',
@@ -54,6 +56,7 @@ const products = [
     name: '证件照与证件扫描',
     image: '/pixfit-icon.png',
     alt: '证件照与证件扫描工具图标',
+    imageClass: 'bg-white/60 object-contain',
     desc: '在线制作标准证件照，支持抠图换底、尺寸裁剪、排版导出和证件扫描 PDF/图片生成。',
     action: '立即使用 →',
     href: 'https://zj.yoloxy.com',
