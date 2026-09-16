@@ -4,6 +4,9 @@
       <h2 class="text-3xl md:text-4xl font-semibold text-apple-black">
         更多工具，同一个团队
       </h2>
+      <p class="mt-4 max-w-2xl mx-auto text-base leading-relaxed text-apple-gray">
+        开通任一 Pro 套餐后，使用同一账号即可在已接入的其他工具中享受通用会员权益，无需重复购买。
+      </p>
       <div class="mt-10 md:mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto">
         <div
           v-for="product in products"

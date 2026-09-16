@@ -133,9 +133,21 @@ if (!pricing.includes('id="pricing"')) {
   throw new Error('SectionPricing should expose id="pricing" for nav anchors.')
 }
 
-for (const required of ['3 个月 Pro', '6 个月 Pro', '1 年 Pro', '永久会员', '¥19.9', '¥29.9', '¥49.9', '¥79.9', '¥129', '¥199']) {
+for (const required of ['1 个月 Pro', '3 个月 Pro', '1 年 Pro', '永久会员', '¥5.9', '¥12.9', '¥29.9', '¥69', '¥19.9', '¥49.9', '¥129']) {
   if (!pricing.includes(required)) {
     throw new Error(`SectionPricing is missing ${required}.`)
+  }
+}
+
+for (const outdated of ['6 个月 Pro', '¥79.9', '¥199']) {
+  if (pricing.includes(outdated)) {
+    throw new Error(`SectionPricing should not include outdated pricing: ${outdated}.`)
+  }
+}
+
+for (const required of ['https://auth.yoloxy.com/api/billing/products', 'invoice_pro_3m', "'x-app-key': AUTHHUB_APP_KEY"]) {
+  if (!pricing.includes(required)) {
+    throw new Error(`SectionPricing should stay synchronized with AuthHub: ${required}.`)
   }
 }
 
@@ -152,6 +164,12 @@ for (const required of ['hover:-translate-y-1', 'hover:shadow-md', 'hover:border
 for (const required of ['Mac 动态壁纸软件', '证件照与证件扫描', '票据归档助手', '永久会员', '敬请期待', '努力开发中']) {
   if (!otherProducts.includes(required)) {
     throw new Error(`SectionOtherProducts is missing ${required}.`)
+  }
+}
+
+for (const required of ['开通任一 Pro 套餐后', '同一账号', '通用会员权益', '无需重复购买']) {
+  if (!otherProducts.includes(required)) {
+    throw new Error(`SectionOtherProducts should explain shared membership access: ${required}.`)
   }
 }
 
